@@ -2,15 +2,15 @@
 #include<iostream>
 
 class Autor{
-  String nume;
-  String prenume;
-  Autor(string nume, string prenume);
-}
+  char nume[20];
+  char prenume[20];
+ 
+};
 class Carte{
-  String titlu;
-  String editura;
-  String gen;
-  Integer an;
+  char titlu[20];
+  char editura[20];
+  char gen[20];
+  int an;
   Autor autor;
-  Carte(string titlu, string editura, string gen, Autor detalii_autor, int an); 
-}
+ 
+};
