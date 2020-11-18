@@ -1,1 +1,13 @@
-
+class Autor{
+  String nume;
+  String prenume;
+  Autor(string nume, string prenume);
+}
+class Carte{
+  String titlu;
+  String editura;
+  String gen;
+  Integer an;
+  Autor autor;
+  Carte(string titlu, string editura, string gen, Autor detalii_autor, int an); 
+}
