@@ -14,3 +14,7 @@ class Carte{
   Autor autor;
  
 };
+
+int main(){
+
+}
