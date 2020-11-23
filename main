@@ -1,20 +1,56 @@
 #include<stdio.h>
 #include<iostream>
 
-class Autor{
-  char nume[20];
-  char prenume[20];
- 
-};
+using namespace std;
+
 class Carte{
-  char titlu[20];
+public:
+  char titlu[40];
   char editura[20];
-  char gen[20];
+  char anume[20];
+  char aprenume[20];
+  char domeniu[20];
   int an;
-  Autor autor;
+  
+  void creeaza_carte(){
+  cout<<"\n Introduceti titlul cartii: ";
+  cin>>titlu;
+  cout<<"\n Introduceti editura cartii: ";
+  cin>>editura;
+  cout<<"\n Introduceti anul in care a fost publicata: ";
+  cin>>an;
+  cout<<"\n Introduceti numele autorului: ";
+  cin>>anume;
+  cout<<"\n Introduceti prenumele autorului: ";
+  cin>>aprenume;
+  cout<<"\n Domeniul cartii create este: ";
+  cin>>domeniu;
+  cout<<"\n Cartea a fost creata cu succes!\n";
+  }
  
+  void afisare_carte(){
+      cout<<"\n Numele cartii: "<<titlu;
+      cout<<"\n Editura cartii: "<<editura;
+      cout<<"\n Anul aparitiei cartii "<<an;
+      cout<<"\n Numele autorului: "<<anume;
+      cout<<"\n Prenumele autorului "<<aprenume;
+      cout<<"\n Domeniul cartii: "<<domeniu;
+      cout<<"\n ---------------------------------------------------";
+  }
 };
 
 int main(){
-
+  int op, i, n=0;
+  Carte carte[10];
+  do{
+      cout<<"\n 1 - Creare, 2 - Afisare, 0 - Iesire";
+      cout<<"\n Introduceti actiunea dorita: ";
+      cin>>op;
+      switch(op){
+          case 1: n++; carte[n].creeaza_carte(); break;
+          case 2: for(i = 1; i<=n; i++){carte[i].afisare_carte();}; break;
+          case 0: break;
+      }
+      
+  }while(op != 0);
 }
