@@ -37,18 +37,50 @@ public:
       cout<<"\n Domeniul cartii: "<<domeniu;
       cout<<"\n ---------------------------------------------------";
   }
+  void afisare_an(int an1, int an2){
+      if(an1 => an2){
+          if(an<=an1 && an>=an2){
+      cout<<"\n Numele cartii: "<<titlu;
+      cout<<"\n Editura cartii: "<<editura;
+      cout<<"\n Anul aparitiei cartii "<<an;
+      cout<<"\n Numele autorului: "<<anume;
+      cout<<"\n Prenumele autorului "<<aprenume;
+      cout<<"\n Domeniul cartii: "<<domeniu;
+      cout<<"\n ---------------------------------------------------";
+          }
+      else if(an1 < an2){
+          if(an>= an1 && an <=an2){
+                    cout<<"\n Numele cartii: "<<titlu;
+      cout<<"\n Editura cartii: "<<editura;
+      cout<<"\n Anul aparitiei cartii "<<an;
+      cout<<"\n Numele autorului: "<<anume;
+      cout<<"\n Prenumele autorului "<<aprenume;
+      cout<<"\n Domeniul cartii: "<<domeniu;
+      cout<<"\n ---------------------------------------------------";
+          }
+      }
+      }
+  }
 };
 
 int main(){
-  int op, i, n=0;
+  int op, i, n=0, an1, an2;
   Carte carte[10];
   do{
-      cout<<"\n 1 - Creare, 2 - Afisare, 0 - Iesire";
+      cout<<"\n 1 - Creare, 2 - Afisare, 3 - Afisare carti intre 2 ani dati ,0 - Iesire";
       cout<<"\n Introduceti actiunea dorita: ";
       cin>>op;
       switch(op){
           case 1: n++; carte[n].creeaza_carte(); break;
           case 2: for(i = 1; i<=n; i++){carte[i].afisare_carte();}; break;
+          case 3: cout<<"\n Introduceti primul an: "; cin>>an1;
+                  cout<<"\n Introduceti al doilea an: "; cin>>an2;
+                  if(n<2){
+                      cout<<"\n Trebuiesc introduse minim 2 carti";
+                      break;
+                  }
+                  for(i = 1; i<=n; i++){carte[i].afisare_an(an1,an2);}
+                  break;
           case 0: break;
       }
       
