@@ -1,95 +1,154 @@
 #include<stdio.h>
 #include<iostream>
+#include<string>
 
 using namespace std;
 
-class Carte{
+class Carte {
 public:
-  char titlu[40];
-  char editura[20];
-  char anume[20];
-  char aprenume[20];
-  char domeniu[20];
-  int an;
-  
-  void creeaza_carte(){
-  cout<<"\n Introduceti titlul cartii: ";
-  cin>>titlu;
-  cout<<"\n Introduceti editura cartii: ";
-  cin>>editura;
-  cout<<"\n Introduceti anul in care a fost publicata: ";
-  cin>>an;
-  cout<<"\n Introduceti numele autorului: ";
-  cin>>anume;
-  cout<<"\n Introduceti prenumele autorului: ";
-  cin>>aprenume;
-  cout<<"\n Domeniul cartii create este: ";
-  cin>>domeniu;
-  cout<<"\n Cartea a fost creata cu succes!\n";
-  }
- 
-  void afisare_carte(){
-      cout<<"\n Numele cartii: "<<titlu;
-      cout<<"\n Editura cartii: "<<editura;
-      cout<<"\n Anul aparitiei cartii "<<an;
-      cout<<"\n Numele autorului: "<<anume;
-      cout<<"\n Prenumele autorului "<<aprenume;
-      cout<<"\n Domeniul cartii: "<<domeniu;
-      cout<<"\n ---------------------------------------------------";
-  }
-  void afisare_an(int an1, int an2){
-      if(an1 > an2){
-          if(an<=an1 && an>=an2){
-      cout<<"\n Numele cartii: "<<titlu;
-      cout<<"\n Editura cartii: "<<editura;
-      cout<<"\n Anul aparitiei cartii "<<an;
-      cout<<"\n Numele autorului: "<<anume;
-      cout<<"\n Prenumele autorului "<<aprenume;
-      cout<<"\n Domeniul cartii: "<<domeniu;
-      cout<<"\n ---------------------------------------------------";
-          }
-      else if(an1 <= an2){
-          if(an>= an1 && an <=an2){
-                    cout<<"\n Numele cartii: "<<titlu;
-      cout<<"\n Editura cartii: "<<editura;
-      cout<<"\n Anul aparitiei cartii "<<an;
-      cout<<"\n Numele autorului: "<<anume;
-      cout<<"\n Prenumele autorului "<<aprenume;
-      cout<<"\n Domeniul cartii: "<<domeniu;
-      cout<<"\n ---------------------------------------------------";
-          }
-      }
-      }
-  }
+    char titlu[40];
+    char editura[20];
+    string anume;
+    string aprenume;
+    string domeniu;
+    int an;
+
+    void creeaza_carte() {
+        cout << "\n ---------------------------------------------------";
+        cout << "\n Introduceti titlul cartii: ";
+        cin >> titlu;
+        cout << "\n Introduceti editura cartii: ";
+        cin >> editura;
+        cout << "\n Introduceti anul in care a fost publicata: ";
+        cin >> an;
+        cout << "\n Introduceti numele autorului: ";
+        cin>>anume;
+        cout << "\n Introduceti prenumele autorului: ";
+        cin>>aprenume;
+        cout << "\n Domeniul cartii create este: ";
+        cin >> domeniu;
+        cout << "\n Cartea a fost creata cu succes!\n";
+        cout << "\n ---------------------------------------------------";
+    }
+
+    void afisare_carte() {
+        cout << "\n ---------------------------------------------------";
+        cout << "\n Titlul cartii: " << titlu;
+        cout << "\n Editura cartii: " << editura;
+        cout << "\n Anul aparitiei cartii " << an;
+        cout << "\n Numele autorului: " << anume;
+        cout << "\n Prenumele autorului " << aprenume;
+        cout << "\n Domeniul cartii: " << domeniu;
+        cout << "\n ---------------------------------------------------";
+    }
+    void afisare_an(int an1, int an2) {
+            if (an <= an1 && an >= an2) {
+                cout << "\n ---------------------------------------------------";
+                cout << "\n Titlul cartii: " << titlu;
+                cout << "\n Editura cartii: " << editura;
+                cout << "\n Anul aparitiei cartii " << an;
+                cout << "\n Numele autorului: " << anume;
+                cout << "\n Prenumele autorului " << aprenume;
+                cout << "\n Domeniul cartii: " << domeniu;
+                cout << "\n ---------------------------------------------------";
+            }
+            else if (an >= an1 && an <= an2) {
+                cout << "\n ---------------------------------------------------";
+                    cout << "\n Numele cartii: " << titlu;
+                    cout << "\n Editura cartii: " << editura;
+                    cout << "\n Anul aparitiei cartii " << an;
+                    cout << "\n Numele autorului: " << anume;
+                    cout << "\n Prenumele autorului " << aprenume;
+                    cout << "\n Domeniul cartii: " << domeniu;
+                    cout << "\n ---------------------------------------------------";
+                }
+    }
+    void carte_autor(string nume, string prenume) {
+        if (nume==anume && prenume == aprenume) {
+            cout << "\n ---------------------------------------------------";
+            cout << "\n Titlul cartii este " << titlu;
+            cout << "\n Editura cartii este " << editura;
+            cout << "\n Anul aparitiei cartii " << an;
+            cout << "\n Domeniul cartii este " << domeniu;
+            cout << "\n ---------------------------------------------------";
+        }
+    }
+    void cautare_domeniu(string adomeniu) {
+        if (adomeniu == domeniu) {
+            cout << "\n ---------------------------------------------------";
+            cout << "\n Titlul cartii este " << titlu;
+            cout << "\n Editura cartii este " << editura;
+            cout << "\n Numele si prenumele autorului este " << anume << " " << aprenume;
+            cout << "\n Anul in care cartea a fost publicata: " << an;
+        }
+    }
+    void cautare_editura(string aeditura) {
+        if (aeditura == editura) {
+            cout << "\n ---------------------------------------------------";
+            cout << "\n Titlul cartii este " << titlu;
+            cout << "\n Numele si prenumele autorului este " << anume << " " << aprenume;
+            cout << "\n Anul in care cartea a fost publicata: " << an;
+            cout << "\n Domeniul cartii este " << domeniu;
+            cout << "\n ---------------------------------------------------";
+        }
+    }
 };
 
-int main(){
-  int op, i, n=0, an1,an2,n1;
-  Carte carte[10];
-  char domeniu[20];
-  do{
-      cout<<"\n 1 - Creare, 2 - Afisare, 3 - Afisare carti intre 2 ani dati, 4 - Actualizare carti,  0 - Iesire";
-      cout<<"\n Introduceti actiunea dorita: ";
-      cin>>op;
-      switch(op){
-          case 1: n++; carte[n].creeaza_carte(); break;
-          case 2: for(i = 1; i<=n; i++){
-                  cout<<"\n Cartea numarul "<<i;
-                  carte[i].afisare_carte();}; break;
-          case 3: cout<<"\n Introduceti primul an: "; cin>>an1;
-                  cout<<"\n Introduceti al doilea an: "; cin>>an2;
-                  if(n<2){
-                      cout<<"\n Trebuiesc introduse minim 2 carti";
-                      break;
-                  }
-                  for(i = 1; i<=n; i++){carte[i].afisare_an(an1,an2);}
-                  break;
-          case 4: cout<<"\n Introduceti numarul cartii care se doreste a fi editata: ";
-                  cin>>n1;
-                  carte[n1].creeaza_carte();
-                  break;
-          case 0: break;
-      }
-      
-  }while(op != 0);
+int main() {
+    int op, i, n = 0, an1, an2, n1;
+    Carte carte[30];
+    string nume, prenume;
+    string domeniu1, editura1;
+    do {
+        cout << "\n -----------------------------------------------------------------------------------------------------------------------";
+        cout << "\n| 1 - Creare | 2 - Afisare | 3 - Actualizare carti | 4 - Afisare carti intre 2 ani dati | 5 - Cautare dupa autor |";
+        cout << "\n| 6 - Cautare dupa domeniu | 7 - Cautare dupa editura | 0 - Iesire |";
+        cout << "\n Introduceti actiunea dorita: ";
+        cin >> op;
+        switch (op) {
+        case 1: n++; carte[n].creeaza_carte(); break;
+        case 2: for (i = 1; i <= n; i++) {
+            cout << "\n Cartea numarul " << i;
+            carte[i].afisare_carte();
+        }; break;
+        case 3: cout << "\n Introduceti numarul cartii care se doreste a fi editata: ";
+            cin >> n1;
+            carte[n1].creeaza_carte();
+            break;
+        case 4: cout << "\n Introduceti primul an: "; cin >> an1;
+            cout << "\n Introduceti al doilea an: "; cin >> an2;
+            if (n < 2) {
+                cout << "\n Trebuiesc introduse minim 2 carti";
+                break;
+            }
+            cout << "\n Cartile publicate intre anii " << an1 << " si " << an2 << " sunt:";
+            for (i = 1; i <= n; i++) { carte[i].afisare_an(an1, an2); }
+            break;
+        case 5: cout << "\n Introduceti numele autorului dorit: ";
+            cin>>nume;
+            cout << "\n Introduceti prenumele autorului dorit: ";
+            cin>>prenume;
+            cout << "\n Cartile scrise de " << nume << " " << prenume << " sunt:";
+            for (i = 1; i <= n; i++) {
+                carte[i].carte_autor(nume, prenume);
+            }
+            break;
+        case 6: cout << "\n Introduceti domeniul dorit: ";
+            cin >> domeniu1;
+            cout << "\n Cartile care apartin domeniului " << domeniu1 << " sunt";
+            for (i = 1; i <= n; i++) {
+                carte[i].cautare_domeniu(domeniu1);
+            }
+            break;
+        case 7: cout << "\n Introduceti editura dorita: ";
+            cin >> editura1;
+            cout << "\n Cartile publicate la editura " << editura1 << " sunt: ";
+            for (i = 1; i <= n; i++) {
+                carte[i].cautare_editura(editura1);
+            }
+            break;
+        case 0: break;
+        }
+
+    } while (op != 0);
 }
