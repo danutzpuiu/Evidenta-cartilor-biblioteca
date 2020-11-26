@@ -6,7 +6,7 @@ using namespace std;
 
 class Carte {
 public:
-    char titlu[40];
+    string titlu;
     string editura;
     string anume;
     string aprenume;
